@@ -2,7 +2,7 @@
 # Local variables #
 #-----------------#
 locals {
-  project = var.project_code
+  project = var.project
   region  = var.region
 }
 

@@ -10,5 +10,5 @@ output "schedule" {
 
 output "http_target_uri" {
   description = "Uri of scheduler"
-  value       = google_cloud_scheduler_job.job.http_target.uri
+  value       = google_cloud_scheduler_job.job.http_target
 }

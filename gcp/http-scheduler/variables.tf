@@ -6,6 +6,7 @@ variable "name" {
 variable "description" {
   type        = string
   description = "Description of Scheduler"
+  default     = "A http scheduler"
 }
 
 variable "schedule" {
@@ -16,37 +17,41 @@ variable "schedule" {
 variable "time_zone" {
   type        = string
   description = "Time zone of Scheduler"
+  default     = "Asia/Singapore"
 }
 
 variable "attempt_deadline" {
   type        = string
   description = "Time zone of Scheduler"
+  default     = "10s"
 }
 
 variable "retry_count" {
-  type        = string
+  type        = number
   description = "Time zone of Scheduler"
+  default     = 0
+}
+
+variable "min_backoff_duration" {
+  type        = string
+  description = "Time before next attempt"
+  default     = "10s"
 }
 
 variable "http_target" {
   description = "Http settings"
-  default     = {}
-  type = map(object({
+  type = object({
     http_method = string
     uri         = string
-  }))
+  })
 }
 
 ###########################
 # Project Variables
 ###########################
 
-variable "project_code" {
-  description = "The project code for project."
-}
-
-variable "environment" {
-  description = "The environment for project. Available types: dev, qa, stg, val, prod."
+variable "project" {
+  description = "The project id for project."
 }
 
 variable "region" {
